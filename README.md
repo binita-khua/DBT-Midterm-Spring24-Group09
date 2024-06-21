@@ -59,3 +59,66 @@
 |            | book_id                    | INT REFERENCES Books(book_id)                                     |
 |            | sale_quantity              | INT                                                              |
 |            | sale_date                  | DATE                                                             |
+
+## SQL Queries to Create Tables with required Attributes
+
+sql
+CREATE TABLE Authors (
+    author_id SERIAL PRIMARY KEY,
+    author_name VARCHAR(255) NOT NULL,
+    author_bio TEXT
+);
+
+CREATE TABLE Publishers (
+    publisher_id SERIAL PRIMARY KEY,
+    publisher_name VARCHAR(255) NOT NULL,
+    publisher_address VARCHAR(255),
+    publisher_phone VARCHAR(50)
+);
+
+CREATE TABLE Books (
+    book_id SERIAL PRIMARY KEY,
+    book_title VARCHAR(255) NOT NULL,
+    author_id INT REFERENCES Authors(author_id),
+    publisher_id INT REFERENCES Publishers(publisher_id),
+    book_genre VARCHAR(255),
+    book_format VARCHAR(50) CHECK (book_format IN ('physical', 'ebook', 'audiobook')),
+    book_price FLOAT,
+    book_publish_date DATE,
+    book_avg_rating FLOAT
+);
+
+CREATE TABLE Customers (
+    customer_id SERIAL PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(50),
+    customer_address VARCHAR(255),
+    customer_total_spent FLOAT,
+    customer_last_purchase_date DATE
+);
+
+CREATE TABLE Reviews (
+    review_id SERIAL PRIMARY KEY,
+    book_id INT REFERENCES Books(book_id),
+    customer_id INT REFERENCES Customers(customer_id),
+    review_rating INT,
+    review_text TEXT,
+    review_date DATE
+);
+
+CREATE TABLE Purchases (
+    purchase_id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES Customers(customer_id),
+    book_id INT REFERENCES Books(book_id),
+    purchase_date DATE,
+    purchase_quantity INT
+);
+
+CREATE TABLE Sales (
+    sale_id SERIAL PRIMARY KEY,
+    book_id INT REFERENCES Books(book_id),
+    sale_quantity INT,
+    sale_date DATE
+);
+
