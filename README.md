@@ -55,6 +55,7 @@
 |            | book_id                    | INT REFERENCES Books(book_id)                                     |
 |            | purchase_date              | DATE                                                             |
 |            | purchase_quantity          | INT                                                              |
+|            | purchase_amount            | DECIMAL(10, 2)                                                   |
 | *Sales*      | sale_id                    | SERIAL PRIMARY KEY                                               |
 |            | book_id                    | INT REFERENCES Books(book_id)                                     |
 |            | sale_quantity              | INT                                                              |
@@ -113,6 +114,7 @@ CREATE TABLE Purchases (
     book_id INT REFERENCES Books(book_id),
     purchase_date DATE,
     purchase_quantity INT
+    purchase_amount DECIMAL(10, 2)
 );
 
 CREATE TABLE Sales (
