@@ -62,7 +62,7 @@
 
 ## SQL Queries to Create Tables with required Attributes
 
-sql
+```sql
 CREATE TABLE Authors (
     author_id SERIAL PRIMARY KEY,
     author_name VARCHAR(255) NOT NULL,
