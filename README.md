@@ -227,3 +227,24 @@ WHERE customer_id = 4;
 DELETE FROM public.customers WHERE customer_id = 4;
 
 ```
+
+## Identifying DML commands for Customer table
+
+```sql
+
+INSERT INTO public.customers(
+    customer_name, customer_email, customer_phone, customer_address, customer_total_spent, customer_last_purchase_date)
+VALUES ('John Doe', 'john.doe@example.com', '555-555-5555', '123 Main St', 100.00, '2024-06-26');
+
+-- Read all customers
+SELECT * FROM public.customers;
+
+-- Read a specific customer by ID
+SELECT * FROM public.customers WHERE customer_id = 1;
+
+UPDATE public.customers
+SET customer_total_spent = 200.00, customer_last_purchase_date = '2024-06-26'
+WHERE customer_id = 1;
+
+DELETE FROM public.customers WHERE customer_id = 1;
+```
