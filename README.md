@@ -231,22 +231,24 @@ DELETE FROM public.customers WHERE customer_id = 4;
 ## Identifying DML commands for Customer table
 
 ```sql
-
+-- Creating a Customer
 INSERT INTO public.customers(
     customer_name, customer_email, customer_phone, customer_address, customer_total_spent, customer_last_purchase_date)
-VALUES ('John Doe', 'john.doe@example.com', '555-555-5555', '123 Main St', 100.00, '2024-06-26');
+VALUES ('Kevin Kang', 'kevin.kang@gmail.com', '555-555-5555', 'KWC', 35.97, '2024-06-25');
 
--- Read all customers
+-- Reading all Customers
 SELECT * FROM public.customers;
 
 -- Read a specific customer by ID
 SELECT * FROM public.customers WHERE customer_id = 1;
 
+-- Updating the Customer details
 UPDATE public.customers
-SET customer_total_spent = 200.00, customer_last_purchase_date = '2024-06-26'
-WHERE customer_id = 1;
+SET customer_total_spent = 20.98, customer_last_purchase_date = '2024-06-26'
+WHERE customer_id = 4;
 
-DELETE FROM public.customers WHERE customer_id = 1;
+-- Deleting a Customer with id 4
+DELETE FROM public.customers WHERE customer_id = 4;
 ```
 
 ## Queries 
