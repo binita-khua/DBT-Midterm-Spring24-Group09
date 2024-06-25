@@ -123,10 +123,11 @@ CREATE TABLE Sales (
     sale_quantity INT,
     sale_date DATE
 );
+```
 
 ## Insert Queries for all the Tables
 
-'''sql
+```sql
 INSERT INTO public.authors(
     author_name, author_bio)
     VALUES ('William Shakespeare', 'William Shakespeare was an English playwright, poet and actor. He is widely regarded as the greatest writer in the English language and the world''s pre-eminent dramatist'),
@@ -202,4 +203,27 @@ INSERT INTO public.reviews(
     (1, 3, 5, 'Another masterpiece by Shakespeare.', '2024-06-23'),
     (2, 3, 5, 'Dickens at his best, a must-read classic.', '2024-06-23');
 ```
+## CRUD Operations for One Table
 
+```sql
+
+-- Creating a Customer
+INSERT INTO public.customers(
+    customer_name, customer_email, customer_phone, customer_address, customer_total_spent, customer_last_purchase_date)
+VALUES ('Kevin Kang', 'kevin.kang@gmail.com', '555-555-5555', 'KWC', 35.97, '2024-06-25');
+
+-- Reading all Customers
+SELECT * FROM public.customers;
+
+-- Read a specific customer by ID
+SELECT * FROM public.customers WHERE customer_id = 1;
+
+-- Updating the Customer details
+UPDATE public.customers
+SET customer_total_spent = 20.98, customer_last_purchase_date = '2024-06-26'
+WHERE customer_id = 4;
+
+-- Deleting a Customer with id 4
+DELETE FROM public.customers WHERE customer_id = 4;
+
+```
