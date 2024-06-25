@@ -113,7 +113,7 @@ CREATE TABLE Purchases (
     customer_id INT REFERENCES Customers(customer_id),
     book_id INT REFERENCES Books(book_id),
     purchase_date DATE,
-    purchase_quantity INT
+    purchase_quantity INT,
     purchase_amount DECIMAL(10, 2)
 );
 
@@ -192,16 +192,16 @@ INSERT INTO public.sales(
 INSERT INTO public.reviews(
     book_id, customer_id, review_rating, review_text, review_date)
     VALUES 
-    (1, 1, 5, 'A timeless classic that captivates every time.', '2024-06-25'),
-    (2, 1, 4, 'An engaging read with deep characters.', '2024-06-25'),
-    (3, 2, 5, 'Magical and captivating, a must-read.', '2024-06-24'),
-    (4, 2, 4, 'A thrilling mystery with unexpected twists.', '2024-06-24'),
-    (5, 3, 4, 'A powerful tragedy, brilliantly written.', '2024-06-23'),
-    (6, 3, 4, 'A moving story of sacrifice and courage.', '2024-06-23'),
-    (7, 1, 5, 'Even better than the first book in the series.', '2024-06-25'),
-    (8, 2, 4, 'A cleverly plotted mystery that keeps you guessing.', '2024-06-24'),
+    (1, 1, 5, 'A timeless classic.', '2024-06-25'),
+    (2, 1, 4, 'An engaging read.', '2024-06-25'),
+    (3, 2, 5, 'Magical and captivating.', '2024-06-24'),
+    (4, 2, 4, 'A thrilling mystery.', '2024-06-24'),
+    (5, 3, 4, 'A powerful tragedy.', '2024-06-23'),
+    (6, 3, 4, 'A moving story.', '2024-06-23'),
+    (7, 1, 5, 'Even better than the first book.', '2024-06-25'),
+    (8, 2, 4, 'A cleverly plotted mystery.', '2024-06-24'),
     (1, 3, 5, 'Another masterpiece by Shakespeare.', '2024-06-23'),
-    (2, 3, 5, 'Dickens at his best, a must-read classic.', '2024-06-23');
+    (2, 3, 5, 'Dickens at his best.', '2024-06-23');
 ```
 ## CRUD Operations for Customer Table
 
@@ -247,4 +247,61 @@ SET customer_total_spent = 200.00, customer_last_purchase_date = '2024-06-26'
 WHERE customer_id = 1;
 
 DELETE FROM public.customers WHERE customer_id = 1;
+```
+
+## Queries 
+
+**Power writers (authors) with more than 1 book in the for the Fantasy genre published within the last 200 years**
+
+```sql
+
+-- The book_genre can be changed to Mystery and Fiction
+
+SELECT author_id, author_name
+FROM public.authors
+WHERE author_id IN (
+    SELECT author_id
+    FROM public.books
+    WHERE book_genre = 'Fantasy' AND book_publish_date > (CURRENT_DATE - INTERVAL '200 years')
+    GROUP BY author_id
+    HAVING COUNT(*) > 1
+);
+
+```
+
+**Loyal Customers who has spent more than 50 dollars in the last year**
+
+```sql
+SELECT customer_id, customer_name
+FROM public.customers
+WHERE customer_total_spent > 50 AND customer_last_purchase_date > (CURRENT_DATE - INTERVAL '1 year');
+
+```
+
+**Well Reviewed Books (Books with a better user rating than average)**
+
+```sql
+SELECT book_id, book_title
+FROM public.books
+WHERE book_avg_rating > (SELECT AVG(book_avg_rating) FROM public.books);
+```
+
+**The most popular genre by sales**
+
+```sql
+SELECT book_genre
+FROM public.books b
+JOIN public.sales s ON b.book_id = s.book_id
+GROUP BY book_genre
+ORDER BY SUM(s.sale_quantity) DESC
+LIMIT 1;
+```
+
+**The 10 most recent posted reviews by Customers**
+
+```sql
+SELECT *
+FROM public.reviews
+ORDER BY review_date DESC
+LIMIT 10;
 ```
