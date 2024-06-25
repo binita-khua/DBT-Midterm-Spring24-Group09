@@ -203,7 +203,7 @@ INSERT INTO public.reviews(
     (1, 3, 5, 'Another masterpiece by Shakespeare.', '2024-06-23'),
     (2, 3, 5, 'Dickens at his best, a must-read classic.', '2024-06-23');
 ```
-## CRUD Operations for One Table
+## CRUD Operations for Customer Table
 
 ```sql
 
