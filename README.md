@@ -227,7 +227,20 @@ WHERE customer_id = 4;
 DELETE FROM public.customers WHERE customer_id = 4;
 
 ```
+## Identifying DDL commands for Customer table
 
+```sql
+
+CREATE TABLE Customers (
+    customer_id SERIAL PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(50),
+    customer_address VARCHAR(255),
+    customer_total_spent FLOAT,
+    customer_last_purchase_date DATE
+);
+```
 ## Identifying DML commands for Customer table
 
 ```sql
