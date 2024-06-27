@@ -434,3 +434,7 @@ runExample();
 - [Harry Potter and the Chamber of Secrets](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets)
 - [The ABC Murders](https://en.wikipedia.org/wiki/The_A.B.C._Murders)
 
+### Some of the details for books and publishers have been modified taking creative liberty.
+
+### Sample Customer Names and Emails:
+- These are fictional details of the team members and professors and were created for the purpose of this assignment.
