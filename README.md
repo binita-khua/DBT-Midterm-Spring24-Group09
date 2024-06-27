@@ -139,12 +139,12 @@ INSERT INTO public.publishers(
     publisher_id, publisher_name, publisher_address, publisher_phone)
     VALUES (1, 'Penguin Random House', '1745 Broadway, New York, NY 10019', '212-555-1234'),
            (2, 'HarperCollins', '195 Broadway, New York, NY 10007', '212-555-5678'),
-           (3, 'Hachette Book Group', '1290 Avenue of the Americas, New York, NY 10104', '212-555-9101'),
+           (3, 'Hachette Book Group', 'New York, NY 10104', '212-555-9101'),
            (4, 'Simon & Schuster', '1230 Avenue of the Americas, New York, NY 10020', '212-555-3145'),
-           (5, 'Macmillan Publishers', '120 Broadway, New York, NY 10271', '212-555-2789'),
-           (6, 'Scholastic', '557 Broadway, New York, NY 10012', '212-555-4321'),
-           (7, 'Oxford University Press', '198 Madison Ave, New York, NY 10016', '212-555-6789'),
-           (8, 'Cengage Learning', '200 Pier 4 Blvd, Boston, MA 02210', '617-555-1122');
+           (5, 'Macmillan Publishers', 'New York, NY 10271', '212-555-2789'),
+           (6, 'Scholastic', '604 King Street West, Toronto,  Ontario M5V 1E1', '416-849-7912'),
+           (7, 'Oxford University Press', 'Oxford England, United Kingdom', '212-555-6789'),
+           (8, 'Cengage Learning', '10650 Toebben Drive, Independence, KY 41051', '800-354-9706');
 
 INSERT INTO public.books(
     book_title, author_id, publisher_id, book_genre, book_format, book_price, book_publish_date, book_avg_rating)
@@ -320,3 +320,117 @@ FROM public.reviews
 ORDER BY review_date DESC
 LIMIT 10;
 ```
+
+## Typescript Interface for Customers Table
+
+```typescript
+
+interface Customer {
+  customer_id: number;
+  customer_name: string;
+  customer_email: string;
+  customer_phone: string;
+  customer_address: string;
+  customer_total_spent: number;
+  customer_last_purchase_date: Date;
+}
+
+interface CustomerService {
+  createCustomer(customer: Customer): Promise<Customer>;
+  readCustomer(customer_id: number): Promise<Customer | null>;
+  updateCustomer(customer: Partial<Customer>): Promise<Customer | null>;
+  deleteCustomer(customer_id: number): Promise<boolean>;
+}
+
+class CustomerServiceImpl implements CustomerService {
+  private customers: Customer[] = [];
+  private nextId: number = 1;
+
+  async createCustomer(customer: Customer): Promise<Customer> {
+    customer.customer_id = this.nextId++;
+    this.customers.push(customer);
+    return customer;
+  }
+
+  async readCustomer(customer_id: number): Promise<Customer | null> {
+    const customer = this.customers.find(c => c.customer_id === customer_id);
+    return customer || null;
+  }
+
+  async updateCustomer(customer: Partial<Customer>): Promise<Customer | null> {
+    const index = this.customers.findIndex(c => c.customer_id === customer.customer_id);
+    if (index === -1) {
+      return null;
+    }
+    this.customers[index] = { ...this.customers[index], ...customer };
+    return this.customers[index];
+  }
+
+  async deleteCustomer(customer_id: number): Promise<boolean> {
+    const index = this.customers.findIndex(c => c.customer_id === customer_id);
+    if (index === -1) {
+      return false;
+    }
+    this.customers.splice(index, 1);
+    return true;
+  }
+}
+
+// Example usage
+const customerService = new CustomerServiceImpl();
+
+const newCustomer: Customer = {
+  customer_id: 0, // This will be set by createCustomer
+  customer_name: 'Binita Khua',
+  customer_email: 'binitakhua@gmail.com',
+  customer_phone: '548-555-2586',
+  customer_address: 'Waterloo',
+  customer_total_spent: 250.00,
+  customer_last_purchase_date: new Date('2024-06-24')
+};
+
+async function runExample() {
+  await customerService.createCustomer(newCustomer);
+  console.log('Customer created:', newCustomer);
+
+  const customer = await customerService.readCustomer(newCustomer.customer_id);
+  console.log('Read customer:', customer);
+
+  await customerService.updateCustomer({ customer_id: newCustomer.customer_id, customer_total_spent: 300.00 });
+  console.log('Updated customer:', await customerService.readCustomer(newCustomer.customer_id));
+
+  await customerService.deleteCustomer(newCustomer.customer_id);
+  console.log('Deleted customer:', await customerService.readCustomer(newCustomer.customer_id));
+}
+
+runExample();
+```
+
+## References for Insert Data
+
+### Authors and their Bios:
+- [William Shakespeare](https://en.wikipedia.org/wiki/William_Shakespeare)
+- [Charles Dickens](https://en.wikipedia.org/wiki/Charles_Dickens)
+- [J.K. Rowling](https://en.wikipedia.org/wiki/J._K._Rowling)
+- [Agatha Christie](https://en.wikipedia.org/wiki/Agatha_Christie)
+
+### Publishers and their Addresses:
+- [Penguin Random House](https://www.penguinrandomhouse.com/)
+- [HarperCollins](https://www.harpercollins.com/)
+- [Hachette Book Group](https://www.hachettebookgroup.com/)
+- [Simon & Schuster](https://www.simonandschuster.com/)
+- [Macmillan Publishers](https://us.macmillan.com/)
+- [Scholastic](https://www.scholastic.com/)
+- [Oxford University Press](https://global.oup.com/)
+- [Cengage Learning](https://www.cengage.com/)
+
+### Books and their Details:
+- [Hamlet](https://en.wikipedia.org/wiki/Hamlet)
+- [Great Expectations](https://en.wikipedia.org/wiki/Great_Expectations)
+- [Harry Potter and the Sorcerer's Stone](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone)
+- [Murder on the Orient Express](https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express)
+- [Macbeth](https://en.wikipedia.org/wiki/Macbeth)
+- [A Tale of Two Cities](https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities)
+- [Harry Potter and the Chamber of Secrets](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets)
+- [The ABC Murders](https://en.wikipedia.org/wiki/The_A.B.C._Murders)
+
