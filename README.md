@@ -406,33 +406,33 @@ async function runExample() {
 runExample();
 ```
 
-## References for Insert Data
+# References for Insert Data
 
-### Authors and their Bios:
-- [William Shakespeare](https://en.wikipedia.org/wiki/William_Shakespeare)
-- [Charles Dickens](https://en.wikipedia.org/wiki/Charles_Dickens)
-- [J.K. Rowling](https://en.wikipedia.org/wiki/J._K._Rowling)
-- [Agatha Christie](https://en.wikipedia.org/wiki/Agatha_Christie)
+## Authors and their Bios:
+- Shakespeare, W. (n.d.). *William Shakespeare*. Retrieved from [https://en.wikipedia.org/wiki/William_Shakespeare](https://en.wikipedia.org/wiki/William_Shakespeare)
+- Dickens, C. (n.d.). *Charles Dickens*. Retrieved from [https://en.wikipedia.org/wiki/Charles_Dickens](https://en.wikipedia.org/wiki/Charles_Dickens)
+- Rowling, J. K. (n.d.). *J. K. Rowling*. Retrieved from [https://en.wikipedia.org/wiki/J._K._Rowling](https://en.wikipedia.org/wiki/J._K._Rowling)
+- Christie, A. (n.d.). *Agatha Christie*. Retrieved from [https://en.wikipedia.org/wiki/Agatha_Christie](https://en.wikipedia.org/wiki/Agatha_Christie)
 
-### Publishers and their Addresses:
-- [Penguin Random House](https://www.penguinrandomhouse.com/)
-- [HarperCollins](https://www.harpercollins.com/)
-- [Hachette Book Group](https://www.hachettebookgroup.com/)
-- [Simon & Schuster](https://www.simonandschuster.com/)
-- [Macmillan Publishers](https://us.macmillan.com/)
-- [Scholastic](https://www.scholastic.com/)
-- [Oxford University Press](https://global.oup.com/)
-- [Cengage Learning](https://www.cengage.com/)
+## Publishers and their Addresses:
+- Penguin Random House. (n.d.). Retrieved from [https://www.penguinrandomhouse.com/](https://www.penguinrandomhouse.com/)
+- HarperCollins. (n.d.). Retrieved from [https://www.harpercollins.com/](https://www.harpercollins.com/)
+- Hachette Book Group. (n.d.). Retrieved from [https://www.hachettebookgroup.com/](https://www.hachettebookgroup.com/)
+- Simon & Schuster. (n.d.). Retrieved from [https://www.simonandschuster.com/](https://www.simonandschuster.com/)
+- Macmillan Publishers. (n.d.). Retrieved from [https://us.macmillan.com/](https://us.macmillan.com/)
+- Scholastic. (n.d.). Retrieved from [https://www.scholastic.com/](https://www.scholastic.com/)
+- Oxford University Press. (n.d.). Retrieved from [https://global.oup.com/](https://global.oup.com/)
+- Cengage Learning. (n.d.). Retrieved from [https://www.cengage.com/](https://www.cengage.com/)
 
-### Books and their Details:
-- [Hamlet](https://en.wikipedia.org/wiki/Hamlet)
-- [Great Expectations](https://en.wikipedia.org/wiki/Great_Expectations)
-- [Harry Potter and the Sorcerer's Stone](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone)
-- [Murder on the Orient Express](https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express)
-- [Macbeth](https://en.wikipedia.org/wiki/Macbeth)
-- [A Tale of Two Cities](https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities)
-- [Harry Potter and the Chamber of Secrets](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets)
-- [The ABC Murders](https://en.wikipedia.org/wiki/The_A.B.C._Murders)
+## Books and their Details:
+- Shakespeare, W. (1603). *Hamlet*. Retrieved from [https://en.wikipedia.org/wiki/Hamlet](https://en.wikipedia.org/wiki/Hamlet)
+- Dickens, C. (1861). *Great Expectations*. Retrieved from [https://en.wikipedia.org/wiki/Great_Expectations](https://en.wikipedia.org/wiki/Great_Expectations)
+- Rowling, J. K. (1997). *Harry Potter and the Sorcerer's Stone*. Retrieved from [https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone)
+- Christie, A. (1934). *Murder on the Orient Express*. Retrieved from [https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express](https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express)
+- Shakespeare, W. (1606). *Macbeth*. Retrieved from [https://en.wikipedia.org/wiki/Macbeth](https://en.wikipedia.org/wiki/Macbeth)
+- Dickens, C. (1859). *A Tale of Two Cities*. Retrieved from [https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities](https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities)
+- Rowling, J. K. (1998). *Harry Potter and the Chamber of Secrets*. Retrieved from [https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets](https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets)
+- Christie, A. (1936). *The ABC Murders*. Retrieved from [https://en.wikipedia.org/wiki/The_A.B.C._Murders](https://en.wikipedia.org/wiki/The_A.B.C._Murders)
 
 ### Some of the details for books and publishers have been modified taking creative liberty.
 
